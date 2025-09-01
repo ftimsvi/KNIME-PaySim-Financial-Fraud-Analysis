@@ -45,6 +45,21 @@ The main workflow (`project.knwf`) is structured into several key sections:
 
 ---
 
+## 📈 Results & Performance
+
+The performance of all implemented models is summarized in the table below. The key metrics are **Error Count** and **Accuracy**, with a detailed breakdown of prediction types (True/False Positives/Negatives).
+
+| Model | Error Count | True Positive | True Negative | False Positive | False Negative | Accuracy |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| k-Means Clustering | 1,364,345 | 5,469 | 1,400,595 | 1,361,601 | 2,744 | 50.75% |
+| Naïve Bayes | 1,642 | 0 | 2,762,196 | 0 | 8,213 | 99.70% |
+| Decision Tree (Outliers Removed) | **865** | 232 | 2,521,287 | 168 | 4,160 | **99.82%** |
+| Decision Tree (Outliers Not Removed) | 1,345 | 1,899 | 2,761,784 | 412 | 6,314 | 99.75% |
+| Random Forest (Outliers Removed) | 876 | 10 | 2,521,454 | 1 | 4,382 | 99.82% |
+| Random Forest (Outliers Not Removed) | 1,411 | 1,226 | 2,762,125 | 71 | 6,987 | 99.74% |
+
+---
+
 ## ⚠️ Challenges & Limitations
 
 1.  **Class Imbalance:** The extreme rarity of fraud cases leads to models biased towards the majority class.
