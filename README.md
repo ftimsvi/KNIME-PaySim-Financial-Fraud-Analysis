@@ -20,6 +20,29 @@ This project implements an end-to-end data analysis workflow in KNIME to detect 
 
 **Key Features:** `step`, `type`, `amount`, `nameOrig`, `oldbalanceOrg`, `newbalanceOrig`, `nameDest`, `oldbalanceDest`, `newbalanceDest`, `isFraud`, `isFlaggedFraud`.
 
+## 🧩 KNIME Workflow Overview
+
+The main workflow (`Financial_Fraud_Analysis.knwf`) is structured into several key sections:
+
+1.  **Data Input & Exploration:** Using a **File Reader** node to load the data, followed by **Rule Engine**, **Statistics**, and **Bar Chart** nodes to understand data distribution, missing values, and the concentration of fraud.
+2.  **Data Preprocessing:** Filtering data (using a **Row Filter**) to focus only on `TRANSFER` and `CASH_OUT` transactions. Creating a new feature `hour_of_day` from the `step` column using a **Math Formula** node.
+3.  **Model Training & Validation:** The workflow splits into parallel branches for different models:
+    *   **K-Means Clustering:** Using the **k-Means** node for unsupervised learning.
+    *   **Supervised Models:** Using the **Partitioning** node to split data and various learner/predictor nodes:
+        *   **Decision Tree**
+        *   **Naïve Bayes**
+        *   **Random Forest**
+    *   Model evaluation is performed using **Cross-Validation** meta-nodes and scored using **Scorer** and **Numeric Scorer** nodes to calculate accuracy, precision, recall, and F1-score.
+4.  **Results Visualization:** Using **ROC Curve**, **Scatter Plot**, and **View** nodes to visualize model performance and analysis results.
+
+---
+
+## ⚠️ Challenges & Limitations
+
+1.  **Class Imbalance:** The extreme rarity of fraud cases leads to models biased towards the majority class.
+2.  **Pattern Repetition:** Artificial patterns in the data can cause overfitting.
+3.  **Limited Feature Set:** Lack of user historical data limits behavioral analysis.
+
 ---
 
 ## 🧑‍🎓 Author
