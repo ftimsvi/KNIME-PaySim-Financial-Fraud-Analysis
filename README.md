@@ -13,7 +13,6 @@ This project implements an end-to-end data analysis workflow in KNIME to detect 
 ## 📊 Dataset
 
 **Name:** Synthetic Financial Datasets For Fraud Detection
-
 **Source:** Available on [Kaggle](https://www.kaggle.com/datasets/ealaxi/paysim1).
 
 **Description:** A realistic synthetic dataset simulating mobile money transactions, designed for fraud detection research.
