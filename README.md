@@ -8,6 +8,8 @@ A comprehensive data mining and machine learning project built in **KNIME Analyt
 
 This project implements an end-to-end data analysis workflow in KNIME to detect suspicious and fraudulent financial activities. The workflow encompasses data loading, exploratory data analysis (EDA), data preprocessing, feature engineering, and training multiple machine learning models. The goal is to evaluate the effectiveness of different models within the KNIME ecosystem for the task of financial anomaly detection.
 
+---
+
 ## 📊 Dataset
 
 **Name:** Synthetic Financial Datasets For Fraud Detection
@@ -22,7 +24,7 @@ This project implements an end-to-end data analysis workflow in KNIME to detect 
 
 ## 🧩 KNIME Workflow Overview
 
-The main workflow (`Financial_Fraud_Analysis.knwf`) is structured into several key sections:
+The main workflow (`project.knwf`) is structured into several key sections:
 
 1.  **Data Input & Exploration:** Using a **File Reader** node to load the data, followed by **Rule Engine**, **Statistics**, and **Bar Chart** nodes to understand data distribution, missing values, and the concentration of fraud.
 2.  **Data Preprocessing:** Filtering data (using a **Row Filter**) to focus only on `TRANSFER` and `CASH_OUT` transactions. Creating a new feature `hour_of_day` from the `step` column using a **Math Formula** node.
@@ -34,6 +36,12 @@ The main workflow (`Financial_Fraud_Analysis.knwf`) is structured into several k
         *   **Random Forest**
     *   Model evaluation is performed using **Cross-Validation** meta-nodes and scored using **Scorer** and **Numeric Scorer** nodes to calculate accuracy, precision, recall, and F1-score.
 4.  **Results Visualization:** Using **ROC Curve**, **Scatter Plot**, and **View** nodes to visualize model performance and analysis results.
+
+## 🎯 Key Insights from EDA
+
+*   Fraud is **exclusively** present in **TRANSFER** and **CASH_OUT** transaction types.
+*   Extreme **class imbalance**: Only 8,213 fraudulent transactions out of 6+ million.
+*   No direct correlation was found between `amount`, time of day (`step`), or specific users and fraudulent activity.
 
 ---
 
